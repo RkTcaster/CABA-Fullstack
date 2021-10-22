@@ -1,0 +1,268 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family:  'Rubik', sans-serif;
+  color: var(--letras-color);
+  box-sizing: border-box;
+}
+
+
+:root {
+  --secondary-color: #151226;
+  --contrast-color: #4D56F0;
+  --letras-color: #fff;
+  --botones-color: #3b96d9;
+  --botones-bordes: #41FAE5;
+}
+
+body{
+  background-color: var(--secondary-color);
+}
+
+.contenedor{
+  opacity: 0;
+  width: 90%;
+  gap: 1vh;
+  background-color: var(--botones-color);
+  border-radius: 15px;
+  margin: 5%;
+  display: grid;
+  animation: aparece 1s ease forwards;
+  grid-template-columns: repeat(1,1fr);
+  grid-template-rows: repeat(5,auto);
+  grid-template-areas: "encabezado"
+                       "barra-1"
+                       "formulario"
+                       "pie"
+}
+
+.contenedor .encabezado{
+  grid-area: encabezado;
+  display: flex;
+  justify-content: center;
+  font-size: 5vmin;
+
+}
+
+.contenedor .barra-1{
+  grid-area: barra-1;
+  display: flex;
+  justify-content: center;
+  background: var(--contrast-color);
+
+}
+.contenedor .barra-1 {
+  text-align: center;
+}
+
+.contenedor .barra-1 ul li{
+  display: inline;
+  margin: 0px;
+}
+
+.contenedor .barra-1 a{
+  text-decoration: none;
+}
+
+.contenedor .barra-1 a:link{
+  font-size: 3vmin;
+}
+
+.contenedor .barra-1 a:hover{
+  color: var(--botones-bordes);
+  font-weight: bold;
+  transition: color 0.3s ease-in;
+}
+
+.contenedor .titulo h3{
+  font-size: 40px;
+  text-align: center;
+  margin: 1.5vh;
+}
+
+.contenedor .formulario form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 5vh;
+  padding: 1.5vh;
+  background-color: var(--secondary-color);
+  border-radius: 15px;
+}
+
+.contenedor .Nform,
+.contenedor .Aform,
+.contenedor .EForm,
+.contenedor .MForm{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.MForm input{
+  height: 150px;
+}
+
+.contenedor .MForm .input{
+  height: 400px;
+}
+
+label{
+  display: block;
+  margin-bottom: 0px;
+}
+
+form div input{
+  width: 97%;
+  height: 2.5vh;
+  border-radius: 3px;
+  outline: none;
+  border: 2px solid var(--contrast-color);
+  padding: 0 0.5vh;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+  color: black;
+}
+
+form div textarea{
+  width: 97%;
+  height: 15vh;
+  border-radius: 3px;
+  outline: none;
+  border: 2px solid var(--contrast-color);
+  padding: 0 0.5vh;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  margin-left: 20px;
+  color: black;
+}
+
+form div {
+  position: relative;
+  margin-bottom: 0px;
+}
+
+input:focus {
+  border: 2px solid var(--botones-bordes);
+}
+
+button{
+  margin-top: 5px;
+  width: 100%;
+  height: 45px;
+  background-color: var(--contrast-color);
+  border: 2px solid var(--contrast-color);
+  border-radius: 8px;
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.1s ease;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.btn {
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    width: 80%;
+    margin-left: 3px
+}
+
+form div i{
+  position: absolute;
+  padding: 0.1vh;
+
+}
+
+.contenedor .fa-user,
+.contenedor .fa-envelope{
+  margin-top: 10px;
+  position: fixed;
+}
+
+
+.failure-icon,
+.error{
+  color:#F26D6D;
+
+}
+
+.success-icon {
+  color: green;
+  margin-top: 10px;
+}
+
+.error {
+  font-size: 14.5px;
+  margin-top: 5px;
+}
+
+.success-icon,
+.failure-icon{
+  right: 0;
+  opacity: 0;
+}
+
+.contenedor .pie{
+  color: #fff;
+  grid-area: pie;
+  animation: aparece .5s ease forwards;
+  animation-delay: 2.5s;
+  padding: 1vh 0vh 0vh 0vh;
+  margin: 1vh;
+}
+
+
+.pie .social {
+  text-align: center;
+}
+
+.pie .social ul li{
+  display: inline;
+  margin: 0 5px;
+}
+
+
+.pie .social .fab{
+  color: var(--letras-color);
+}
+
+.pie .social .fab:hover{
+  color: var(--botones-bordes);
+  transition: color 0.3s ease-in;
+}
+
+.pie .social-media .fab:visited{
+  text-decoration: none;
+}
+
+.pie .nav p{
+  padding: 1vh;
+  text-align: center;
+  font-size: 1.5vh
+
+}
+
+
+
+
+
+.form-control{
+background-color: var(--secondary-color);
+border-width: 3px;
+}
+
+@keyframes aparece {
+  0%{
+    opacity: 0;
+    transform: translatex(-10px);
+  }
+  100%{
+    opacity: .9;
+    transform: translatex(0%);
+
+  }
+}

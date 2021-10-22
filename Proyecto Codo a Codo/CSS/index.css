@@ -1,0 +1,281 @@
+* {
+  margin: 0;
+  padding: 0;
+  background-color: var(--botones-color);
+  font-family:  'Rubik', sans-serif;
+}
+
+:root {
+  --secondary-color: #151226;
+  --contrast-color: #4D56F0;
+  --letras-color: #fff;
+  --botones-color: #3b96d9;
+  --botones-bordes: #41FAE5;
+}
+
+.entrada {
+  padding: 5vh;
+  /* display: flex; */
+  height: 100vh;
+  max-height: 150vh;
+  /* justify-content: space-around;
+  align-items: center; */
+  color: var(--letras-color);
+  /* animation: expand .8s ease forwards; */
+  background-color: var(--secondary-color);
+  position: relative;
+  transition: all .5s ease;
+}
+
+.entrada img{
+  float: right;
+  width: 80%;
+  height: 85%;
+  max-width: 150px;
+  max-height: 150px;
+  transform: scaleX(-1);
+  display: flex;
+
+}
+.entrada .contenedor{
+  opacity: 0;
+  width: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  gap: 1vh;
+
+  /* Animacion */
+  animation:aparece .9s ease forwards;
+  animation-delay: .8s;
+  border-radius: 15px;
+
+  /* Grid config */
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-template-rows: repeat(4, auto);
+  grid-template-areas: "encabezado encabezado"
+                       "principal principal"
+                       "W1 W2"
+                       "pie pie"
+}
+
+.contenedor > div,
+.contenedor .encabezado,
+.contenedor .contenido,
+.contenedor .principal,
+.contenedor .pie{
+  padding: 0.5vh;
+  opacity: 0;
+  /* border-style: solid;
+  border-width: medium; */
+}
+
+.contenedor .encabezado{
+  background: transparent;
+  color: #fff;
+  grid-area: encabezado;
+  animation: aparece .3s ease forwards;
+  animation-delay: 1.6s;
+}
+
+.encabezado .texto{
+  background: var(--secondary-color);
+  height: 70%;
+  padding: 0;
+  margin: 1vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 20px;
+}
+
+.encabezado .texto2{
+  padding: 0;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.texto h1{
+  background: transparent;
+  font-size: 7vmin;
+  font-family: 'Shadows Into Light', cursive;
+}
+
+.texto2 p{
+  font-size: 3.5vmin;
+}
+
+
+.contenedor .principal{
+  background: var(--secondary-color);
+  margin: 1vh;
+  grid-area: principal;
+  animation: aparece 1s ease forwards;
+  animation-delay: 1.9s;
+  border-radius: 10px;
+}
+.contenedor .principal h3{
+  background: transparent;
+}
+.contenedor .principal p{
+  background: var(--secondary-color);
+}
+
+.contenedor .W1,
+.contenedor .W2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 5vh;
+}
+
+.contenedor .W1{
+  grid-area: W1;
+  animation: izq 1s ease forwards;
+  animation-delay: 2.2s;
+}
+
+.contenedor .W2{
+  grid-area: W2;
+  animation: izq 1s ease forwards;
+  animation-delay: 2.5s;
+}
+
+.contenedor .pie{
+
+  color: #fff;
+  grid-area: pie;
+  animation: aparece .5s ease forwards;
+  animation-delay: 2.5s;
+  padding: 1vh 0vh 0vh 0vh;
+  margin: 1vh;
+
+
+}
+
+
+.pie .social {
+  text-align: center;
+
+}
+
+.pie .social ul li{
+  display: inline;
+  margin: 0 5px;
+
+}
+
+.pie. .social {
+
+}
+
+.pie .social .fab{
+  color: var(--letras-color);
+
+}
+
+.pie .social .fab:hover{
+  color: var(--botones-bordes);
+  transition: color 0.3s ease-in;
+
+}
+
+.pie .social-media .fab:visited{
+  text-decoration: none;
+
+
+}
+
+.pie .nav p{
+  padding: 1vh;
+  text-align: center;
+
+}
+
+/* Botones */
+.contenedor .button1,
+.contenedor .button2{
+  height: 100%;
+  width: 100%;
+  /* align-items: left; */
+}
+
+.contenedor .button1 {
+  background-color: var(--contrast-color);
+  color: white;
+  border: 2px solid var(--botones-bordes);
+  font-weight: bold;
+}
+
+.contenedor .button1:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+.contenedor .button2 {
+  background-color: var(--contrast-color);
+  color: white;
+  border: 2px solid var(--botones-bordes);
+  font-weight: bold;
+}
+
+.contenedor .button2:hover {
+  background-color: var(--secondary-color);
+  color: white;
+}
+
+@media screen and (max-width: 768px){
+.entrada .contenedor{
+
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(5, auto);
+  grid-template-areas: "encabezado"
+                       "principal"
+                       "W1"
+                       "W2"
+                       "pie"
+
+    }
+    .entrada img{
+      max-width: 0px;
+      max-height: 0px;
+
+
+    }
+}
+
+
+
+@keyframes expand {
+  0% {
+    transform: translatey(100vh);
+  }
+  100% {
+    transform: translatey(0vh);
+  }
+}
+
+@keyframes aparece {
+  0%{
+    opacity: 0;
+    transform: translatex(-10px);
+  }
+  100%{
+    opacity: .9;
+    transform: translatex(0%);
+
+  }
+}
+
+@keyframes izq {
+  0%{
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100%{
+    opacity: .9;
+    transform: translateY(0%);
+  }
+}
